@@ -14,12 +14,12 @@
 
 #ifdef __cplusplus
 
-void debugPrint(const char* text)
+void GUT::debugPrint(const char* text)
 {
     std::cout << text << std::endl;
 }
 
-int randint(int a, int b)
+int GUT::randint(int a, int b)
 {
     return rand() % (b - a) + a;
 }

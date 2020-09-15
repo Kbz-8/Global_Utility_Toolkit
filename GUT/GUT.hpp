@@ -31,8 +31,12 @@ typedef unsigned short GUTushort;
 typedef unsigned char GUTuchar;
 typedef const char* GUTtext;
 
-void debugPrint(const char* text = "debug");  // test print for debugging
-int randint(int a, int b);  // gives a random integer
+class GUT
+{
+    public:
+        static void debugPrint(const char* text = "debug");  // test print for debugging
+        static int randint(int a, int b);  // gives a random integer
+};
 
 #endif // __cplusplus
 #endif // __GUT_HPP__
