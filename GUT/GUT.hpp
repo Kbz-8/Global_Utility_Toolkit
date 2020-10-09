@@ -17,6 +17,7 @@
 
 #include "math/Vec3/Vec3.hpp"
 #include "math/Vec2/vec2.hpp"
+#include "math/Vec4/vec4.hpp"
 #include "Log/log.hpp"
 #include "GL/getPixelColor/getpixelcolor.hpp"
 

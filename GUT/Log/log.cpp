@@ -23,7 +23,7 @@ void Log::report(enum LogType type, std::string message, std::string path)
     std::ofstream test(getTime(type, path).c_str());
 
     if(test)
-        test << message << std::endl;
+        test << message;
 }
 
 std::string Log::getTime(enum LogType type, std::string path)
@@ -39,7 +39,7 @@ std::string Log::getTime(enum LogType type, std::string path)
     {
         case MESSAGE: path.append("/Messages/"); break;
         case WARNING: path.append("/Warnings/"); break;
-        case ERROR:   path.append("/Errors/"); break;
+        case ERROR:
         case FATAL_ERROR: path.append("/Errors/"); break;
 
         default: break;
@@ -47,6 +47,8 @@ std::string Log::getTime(enum LogType type, std::string path)
 
     path.append(date);
     path.append(".txt");
+
+    std::cout << path << std::endl;
 
     return path;
 }

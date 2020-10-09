@@ -17,6 +17,8 @@
 
 #ifdef __cplusplus
 
+#define Vec3Null Vec3(NULL, NULL, NULL)
+
 class Vec3
 {
     public :
