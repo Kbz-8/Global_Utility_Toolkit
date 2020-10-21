@@ -9,7 +9,7 @@
 //
 // AUTHOR: DAVID Malo
 // CREATED: 11/09/2020
-// UPDATED: 11/09/2020
+// UPDATED: 20/09/2020
 /*=============================================================*/
 
 #ifndef Vec2_HPP_INCLUDED
