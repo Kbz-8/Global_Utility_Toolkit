@@ -17,6 +17,9 @@
 
 #ifdef __cplusplus
 
+#include <iostream>
+#include <cmath>
+
 #define Vec3Null Vec3(NULL, NULL, NULL)
 
 class Vec3
@@ -76,7 +79,7 @@ class Vec3
 
         Vec3 SET(double x, double y, double z);
 
-        void printVec3();
+        friend std::ostream & operator<<(std::ostream& target, const Vec3& source);
 
         Vec3 NEGATE();
         Vec3 NEGATEprecisely(bool x, bool y, bool z);

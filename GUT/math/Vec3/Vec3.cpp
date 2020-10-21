@@ -16,9 +16,6 @@
 
 #ifdef __cplusplus
 
-#include <iostream>
-#include <cmath>
-
 Vec3::Vec3()
 {
     X = 0;
@@ -311,9 +308,10 @@ Vec3 Vec3::SET(double x, double y, double z)
 	return *this;
 }
 
-void Vec3::printVec3()
+std::ostream & operator<<(std::ostream& target, const Vec3& source)
 {
-    std::cout << X << ", " << Y << ", " << Z << std::endl;
+    target << source.X << ", " << source.Y << ", " << source.Z;
+    return target;
 }
 
 Vec3 Vec3::NEGATE()

@@ -17,6 +17,9 @@
 
 #ifdef __cplusplus
 
+#include <iostream>
+#include <cmath>
+
 #define Vec2Null Vec2(NULL, NULL)
 
 class Vec2
@@ -75,7 +78,7 @@ class Vec2
 
         Vec2 SET(double x, double y);
 
-        void printVec2();
+        friend std::ostream & operator<<(std::ostream& target, const Vec2& source);
 
         Vec2 NEGATE();
         Vec2 NEGATEprecisely(bool x, bool y);

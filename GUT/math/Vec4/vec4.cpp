@@ -16,9 +16,6 @@
 
 #ifdef __cplusplus
 
-#include <iostream>
-#include <cmath>
-
 Vec4::Vec4()
 {
     X = 0;
@@ -297,9 +294,10 @@ Vec4 Vec4::SET(double x, double y, double z, double w)
 	return *this;
 }
 
-void Vec4::printVec4()
+std::ostream & operator<<(std::ostream& target, const Vec4& source)
 {
-    std::cout << X << ", " << Y << ", " << Z << ", " << W << std::endl;
+    target << source.X << ", " << source.Y << ", " << source.Z << ", " << source.W;
+    return target;
 }
 
 Vec4 Vec4::NEGATE()

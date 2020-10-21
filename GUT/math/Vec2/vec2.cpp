@@ -16,9 +16,6 @@
 
 #ifdef __cplusplus
 
-#include <iostream>
-#include <cmath>
-
 Vec2::Vec2()
 {
     X = 0;
@@ -265,9 +262,10 @@ Vec2 Vec2::SET(double x, double y)
 	return *this;
 }
 
-void Vec2::printVec2()
+std::ostream & operator<<(std::ostream& target, const Vec2& source)
 {
-    std::cout << X << ", " << Y << std::endl;
+    target << source.X << ", " << source.Y;
+    return target;
 }
 
 Vec2 Vec2::NEGATE()

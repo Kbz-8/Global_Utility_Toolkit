@@ -17,6 +17,9 @@
 
 #ifdef __cplusplus
 
+#include <iostream>
+#include <cmath>
+
 #define Vec4Null Vec4(NULL, NULL, NULL, NULL)
 
 class Vec4
@@ -77,7 +80,7 @@ class Vec4
 
         Vec4 SET(double x, double y, double z, double w);
 
-        void printVec4();
+        friend std::ostream & operator<<(std::ostream& target, const Vec4& source);
 
         Vec4 NEGATE();
         Vec4 NEGATEprecisely(bool x, bool y, bool z, bool w);
