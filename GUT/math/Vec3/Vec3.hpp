@@ -1,5 +1,5 @@
 /*=============================================================*/
-// Global Utilitie Toolkit
+// Global Utility Toolkit
 // GUT is a global extension for C++. It simplifies the development of 3D programs (especially with OpenGL).
 // It can also be used in simple programs.
 //
