@@ -7,7 +7,7 @@
 //
 // AUTHOR: DAVID Malo
 // CREATED: 11/09/2020
-// UPDATED: 12/09/2020
+// UPDATED: 22/09/2020
 /*=============================================================*/
 
 #ifndef __GUT_HPP__
@@ -25,12 +25,12 @@
 
 
 /* shortcuts for variable types */
-typedef unsigned int GUTuint;
-typedef unsigned long GUTulong;
-typedef unsigned long long GUTulonglong;
-typedef unsigned short GUTushort;
-typedef unsigned char GUTuchar;
-typedef const char* GUTtext;
+#define GUTuint unsigned int
+#define GUTulong unsigned long
+#define GUTulonglong unsigned long long
+#define GUTushort unsigned short
+#define GUTuchar unsigned char
+#define GUTtext const char*
 
 class GUT
 {
