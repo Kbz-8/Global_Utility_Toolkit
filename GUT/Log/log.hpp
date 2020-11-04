@@ -27,7 +27,8 @@ enum LogType
     MESSAGE,
     WARNING,
     ERROR,
-    FATAL_ERROR
+    FATAL_ERROR,
+    DONT_SAVE
 };
 
 class Log

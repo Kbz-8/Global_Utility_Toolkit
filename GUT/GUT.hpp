@@ -7,7 +7,7 @@
 //
 // AUTHOR: DAVID Malo
 // CREATED: 11/09/2020
-// UPDATED: 22/09/2020
+// UPDATED: 31/10/2020
 /*=============================================================*/
 
 #ifndef __GUT_HPP__
@@ -18,8 +18,12 @@
 #include "math/Vec3/Vec3.hpp"
 #include "math/Vec2/vec2.hpp"
 #include "math/Vec4/vec4.hpp"
+#include "math/math.hpp"
 #include "Log/log.hpp"
 #include "GL/getPixelColor/getpixelcolor.hpp"
+#include "GL/shader/shader.hpp"
+#include "GL/text/text.hpp"
+#include "SDL2/input/input.hpp"
 
 #include <iostream>
 
@@ -32,11 +36,11 @@
 #define GUTuchar unsigned char
 #define GUTtext const char*
 
-class GUT
+class gut : public Math
 {
     public:
-        static void debugPrint(const char* text = "debug");  // test print for debugging
-        static int randint(int a, int b);  // gives a random integer
+        gut();
+        static void debugPrint(GUTtext text = "debug");  // test print for debugging
 };
 
 #endif // __cplusplus

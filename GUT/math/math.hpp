@@ -3,23 +3,27 @@
 // GUT is a global extension for C++. It simplifies the development of 3D programs (especially with OpenGL).
 // It can also be used in simple programs.
 //
-// GUT.cpp
+// math.hpp
 //
 // AUTHOR: DAVID Malo
-// CREATED: 11/09/2020
+// CREATED: 31/10/2020
 // UPDATED: 31/10/2020
 /*=============================================================*/
 
-#include "GUT.hpp"
+#ifndef MATH_HPP
+#define MATH_HPP
 
 #ifdef __cplusplus
 
-gut::gut(): Math()
-{}
+#include <iostream>
 
-void gut::debugPrint(GUTtext text)
+class Math
 {
-    std::cout << text << std::endl;
-}
+    public:
+        static int randint(int a, int b);  // gives a random integer
+        static bool rand_probability(double proba);
+};
 
-#endif //__cplusplus
+#endif // __cplusplus
+
+#endif // MATH_HPP

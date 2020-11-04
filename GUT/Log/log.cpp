@@ -20,10 +20,13 @@ Log::Log() {}
 
 void Log::report(enum LogType type, std::string message, std::string path)
 {
-    std::ofstream test(getTime(type, path).c_str());
+    if(type != DONT_SAVE)
+    {
+        std::ofstream test(getTime(type, path).c_str());
 
-    if(test)
-        test << message;
+        if(test)
+            test << message;
+    }
 }
 
 std::string Log::getTime(enum LogType type, std::string path)
@@ -41,7 +44,6 @@ std::string Log::getTime(enum LogType type, std::string path)
         case WARNING: path.append("/Warnings/"); break;
         case ERROR:
         case FATAL_ERROR: path.append("/Errors/"); break;
-
         default: break;
     }
 
