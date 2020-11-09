@@ -3,29 +3,43 @@
 // GUT is a global extension for C++. It simplifies the development of 3D programs (especially with OpenGL).
 // It can also be used in simple programs.
 //
-// math.hpp
+// messagebox.hpp
 //
 // AUTHOR: DAVID Malo
-// CREATED: 31/10/2020
+// CREATED: 11/09/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
 
-#ifndef MATH_HPP
-#define MATH_HPP
+#ifndef MESSAGEBOX_HPP
+#define MESSAGEBOX_HPP
 
 #ifdef __cplusplus
 
+#include <SDL2/SDL.h>
 #include <iostream>
+#include <cstdlib>
+#include <string>
+
+#include "../../Log/log.hpp"
 
 namespace gut
 {
-    namespace math
+namespace sdl
+{
+    class MessageBox
     {
-        int randint(int a, int b);  // gives a random integer
-        bool rand_probability(double proba);
-    }
+        public:
+            MessageBox();
+
+            static void reportMessage(enum LogType type, std::string message, std::string logReport);
+
+            ~MessageBox();
+
+        private:
+    };
+}
 }
 
 #endif // __cplusplus
 
-#endif // MATH_HPP
+#endif // MESSAGEBOX_HPP

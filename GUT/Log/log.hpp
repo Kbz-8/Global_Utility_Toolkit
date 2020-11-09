@@ -9,7 +9,7 @@
 //
 // AUTHOR: DAVID Malo
 // CREATED: 04/09/2020
-// UPDATED: 11/09/2020
+// UPDATED: 07/11/2020
 /*=============================================================*/
 
 #ifndef LOG_HPP
@@ -31,18 +31,25 @@ enum LogType
     DONT_SAVE
 };
 
-class Log
+namespace gut
 {
-    public:
-        Log();
 
-        static void report(enum LogType type, std::string message, std::string path);
+    class Log
+    {
+        public:
+            Log();
 
-        ~Log();
+            static void report(enum LogType type, std::string message, std::string path);
 
-    private:
-        static std::string getTime(enum LogType type, std::string path);
-};
+            ~Log();
+
+        private:
+            static std::string getTime(enum LogType type, std::string path);
+    };
+
+}
+
+
 
 #endif // __cplusplus
 
