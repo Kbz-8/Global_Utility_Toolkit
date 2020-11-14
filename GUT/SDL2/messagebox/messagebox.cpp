@@ -5,9 +5,9 @@
 //
 // messagebox.cpp
 //
-// AUTHOR: DAVID Malo
-// CREATED: 11/09/2020
-// UPDATED: 07/11/2020
+// AUTHOR: Malo DAVID
+// CREATED: 08/11/2020
+// UPDATED: 08/11/2020
 /*=============================================================*/
 
 #ifdef __cplusplus

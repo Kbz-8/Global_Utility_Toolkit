@@ -5,7 +5,7 @@
 //
 // shader.hpp
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
@@ -21,9 +21,10 @@
 // Include OpenGL
 #include <GL/glew.h>
 
-#define GLEW_STATIC
-
 #include "../../SDL2/messagebox/messagebox.hpp"
+#include "../../math/Vec2/vec2.hpp"
+#include "../../math/Vec3/Vec3.hpp"
+#include "../../math/Vec4/vec4.hpp"
 
 namespace gut
 {
@@ -37,8 +38,15 @@ namespace gl
             void bindShader(); // Fonction pour vérouiller le shader
             void unbindShader(); // Fonction pour dévérouiller le shader
 
-            // Fonction pour modifier des variables dans le shader
+            // Fonctions pour modifier des variables dans le shader
+            void setFloat(const std::string &name, float v);
+            void setInt(const std::string &name, int v);
             void setBool(const std::string &name, bool v);
+            void setVec3(const std::string &name, math::Vec3 v);
+            void setVec2(const std::string &name, math::Vec3 v);
+            void setVec3(const std::string &name, int x, int y, int z);
+            void setVec2(const std::string &name, int x, int y);
+            void setVec4(const std::string &name, int x, int y, int z, int t);
 
             virtual ~Shader(); // Destructeur virtuel car héritée par la classe Application
 

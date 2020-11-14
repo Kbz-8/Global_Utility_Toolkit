@@ -5,7 +5,7 @@
 //
 // GUT.hpp
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 11/09/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
@@ -19,13 +19,18 @@
 #include "math/Vec2/vec2.hpp"
 #include "math/Vec4/vec4.hpp"
 #include "math/math.hpp"
+
 #include "Log/log.hpp"
+
 #include "GL/getPixelColor/getpixelcolor.hpp"
 #include "GL/shader/shader.hpp"
 #include "GL/text/text.hpp"
 #include "GL/button/button.hpp"
+#include "GL/utils.hpp"
+
 #include "SDL2/input/input.hpp"
 #include "SDL2/messagebox/messagebox.hpp"
+#include "SDL2/button/button.hpp"
 
 #include <iostream>
 

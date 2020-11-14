@@ -5,7 +5,7 @@
 //
 // shader.cpp
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
@@ -54,10 +54,45 @@ namespace gl
         glUseProgram(0); // N'utilise plus aucun shaders
     }
 
-    /* ========================= Fonction pour modifier des variables du shader ========================= */
+    /* ========================= Fonctions pour modifier des variables du shader ========================= */
+    void Shader::setFloat(const std::string &name, float v)
+    {
+        glUniform1f(glGetUniformLocation(program, name.c_str()), v);
+    }
+
+    void Shader::setVec3(const std::string &name, math::Vec3 v)
+    {
+        glUniform3f(glGetUniformLocation(program, name.c_str()), v.X, v.Y, v.Z);
+    }
+
+    void Shader::setVec2(const std::string &name, math::Vec3 v)
+    {
+        glUniform2f(glGetUniformLocation(program, name.c_str()), v.X, v.Y);
+    }
+
+    void Shader::setVec3(const std::string &name, int x, int y, int z)
+    {
+        glUniform3f(glGetUniformLocation(program, name.c_str()), x, y, z);
+    }
+
+    void Shader::setVec2(const std::string &name, int x, int y)
+    {
+        glUniform2f(glGetUniformLocation(program, name.c_str()), x, y);
+    }
+
+    void Shader::setInt(const std::string &name, int v)
+    {
+        glUniform1f(glGetUniformLocation(program, name.c_str()), v);
+    }
+
     void Shader::setBool(const std::string &name, bool v)
     {
         glUniform1f(glGetUniformLocation(program, name.c_str()), v);
+    }
+
+    void Shader::setVec4(const std::string &name, int x, int y, int z, int t)
+    {
+        glUniform4f(glGetUniformLocation(program, name.c_str()), x, y, z, t);
     }
 
 

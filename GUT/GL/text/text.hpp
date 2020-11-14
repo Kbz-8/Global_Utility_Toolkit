@@ -5,7 +5,7 @@
 //
 // text.hpp
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
@@ -19,8 +19,6 @@
 #include <SDL2/SDL_ttf.h>
 
 #include <GL/glew.h>
-
-#define GLEW_STATIC
 
 #include <iostream>
 #include <string>

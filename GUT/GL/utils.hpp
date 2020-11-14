@@ -3,36 +3,28 @@
 // GUT is a global extension for C++. It simplifies the development of 3D programs (especially with OpenGL).
 // It can also be used in simple programs.
 //
-// getpixelcolor.hpp
-// Can only be used with OpenGL
+// utils.hpp
 //
 // AUTHOR: Malo DAVID
-// CREATED: 11/09/2020
-// UPDATED: 07/11/2020
+// CREATED: 13/11/2020
+// UPDATED: 13/11/2020
 /*=============================================================*/
 
-#ifndef __GETPIXELCOLOR_HPP__
-#define __GETPIXELCOLOR_HPP__
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
-#ifdef __cplusplus  // only available for C++
+#ifdef __cplusplus
 
-// Includes OpenGL
 #include <GL/glew.h>
-
-struct Color
-{
-    GLubyte R;
-    GLubyte G;
-    GLubyte B;
-};
 
 namespace gut
 {
 namespace gl
 {
-    Color getPixelColor(GLint x, GLint y);
+    void Ortho(int width, int height);
+    void Perspec();
 }
 }
 
 #endif // __cplusplus
-#endif // __GETPIXELCOLOR_HPP__
+#endif // UTILS_HPP

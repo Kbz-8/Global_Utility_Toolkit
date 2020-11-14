@@ -5,7 +5,7 @@
 //
 // button.hpp
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
@@ -17,8 +17,6 @@
 
 #include <GL/glew.h>
 #include <iostream>
-
-#define GLEW_STATIC
 
 #include "../text/text.hpp"
 

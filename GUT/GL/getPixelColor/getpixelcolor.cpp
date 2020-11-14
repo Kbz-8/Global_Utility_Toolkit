@@ -6,7 +6,7 @@
 // getpixelcolor.cpp
 // Can only be used with OpenGL
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 11/09/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/

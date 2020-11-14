@@ -7,7 +7,7 @@
 //
 // Class for 2D vectors
 //
-// AUTHOR: DAVID Malo
+// AUTHOR: Malo DAVID
 // CREATED: 11/09/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
@@ -20,7 +20,7 @@
 #include <iostream>
 #include <cmath>
 
-#define Vec2Null Vec2(NULL, NULL)
+#define Vec2Null gut::math::Vec2(NULL, NULL)
 
 namespace gut
 {
