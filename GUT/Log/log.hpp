@@ -21,19 +21,18 @@
 #include <fstream>
 #include <ctime>
 #include <string>
+#include <cstdlib>
 
 enum LogType
 {
     MESSAGE,
     WARNING,
     ERROR,
-    FATAL_ERROR,
-    DONT_SAVE
+    FATAL_ERROR
 };
 
 namespace gut
 {
-
     class Log
     {
         public:
@@ -46,7 +45,6 @@ namespace gut
         private:
             static std::string getTime(enum LogType type, std::string path);
     };
-
 }
 
 

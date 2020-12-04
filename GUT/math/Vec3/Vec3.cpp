@@ -134,6 +134,15 @@ namespace math
         return *this;
     }
 
+    Vec3 Vec3::operator- ()
+    {
+        X = -X;
+        Y = -Y;
+        Z = -Z;
+
+        return *this;
+    }
+
     Vec3 & Vec3::operator*= (const double a)
     {
         X *= a;
@@ -338,6 +347,15 @@ namespace math
     double Vec3::dot(Vec3 v)
     {
         return X * v.X + Y * v.Y + Z * v.Z;
+    }
+
+    Vec3 Vec3::absolute()
+    {
+        X = abs(X);
+        Y = abs(Y);
+        Z = abs(Z);
+
+        return *this;
     }
 }
 }

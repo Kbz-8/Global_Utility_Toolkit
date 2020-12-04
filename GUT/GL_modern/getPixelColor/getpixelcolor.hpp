@@ -3,34 +3,36 @@
 // GUT is a global extension for C++. It simplifies the development of 3D programs (especially with OpenGL).
 // It can also be used in simple programs.
 //
-// math.hpp
+// getpixelcolor.hpp
+// Can only be used with OpenGL
 //
 // AUTHOR: Malo DAVID
-// CREATED: 31/10/2020
+// CREATED: 11/09/2020
 // UPDATED: 07/11/2020
 /*=============================================================*/
 
-#ifndef MATH_HPP
-#define MATH_HPP
+#ifndef __GETPIXELCOLOR_HPP__
+#define __GETPIXELCOLOR_HPP__
 
-#ifdef __cplusplus
+#ifdef __cplusplus  // only available for C++
 
-#include "Vec2/vec2.hpp"
-#include "Vec3/Vec3.hpp"
-#include "Vec4/vec4.hpp"
+// Includes OpenGL
+#include <GL/glew.h>
 
-#include <iostream>
-#include <cmath>
+struct Color
+{
+    float R;
+    float G;
+    float B;
+};
 
 namespace gut
 {
-    namespace math
-    {
-        int randint(int a, int b);  // gives a random integer
-        bool rand_probability(double proba);
-    }
+namespace gl3
+{
+    Color getPixelColor(GLint x, GLint y);
+}
 }
 
 #endif // __cplusplus
-
-#endif // MATH_HPP
+#endif // __GETPIXELCOLOR_HPP__

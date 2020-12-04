@@ -26,16 +26,11 @@ namespace gut
 {
 namespace sdl
 {
-    class MessageBox
+    struct MessageBox
     {
-        public:
-            MessageBox();
-
-            static void reportMessage(enum LogType type, std::string message, std::string logReport);
-
-            ~MessageBox();
-
-        private:
+        MessageBox();
+        static void reportMessage(enum LogType type, std::string message, std::string logReport);
+        ~MessageBox();
     };
 }
 }

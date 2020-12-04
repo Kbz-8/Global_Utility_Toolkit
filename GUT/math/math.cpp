@@ -25,8 +25,10 @@ namespace gut
 
         bool rand_probability(double proba)
         {
-            if(proba < 1)       return ((double)rand() / (double)RAND_MAX < proba);
-            else if(proba == 1) return true;
+            if(proba < 1)
+                return ((double)rand() / (double)RAND_MAX < proba);
+            else if(proba == 1)
+                return true;
             return false;
         }
     }

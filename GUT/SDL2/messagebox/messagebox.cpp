@@ -22,7 +22,7 @@ namespace sdl
 
     void MessageBox::reportMessage(enum LogType type, std::string message, std::string logReport)
     {
-        gut::Log::report(type, logReport, "Log_Report");
+        Log::report(type, logReport, "Log_Report");
 
         SDL_MessageBoxButtonData buttons[] = {
             {NULL, 0, "Plus de détails"},
@@ -48,7 +48,6 @@ namespace sdl
 
         switch(type)
         {
-            case DONT_SAVE:
             case MESSAGE: flag = SDL_MESSAGEBOX_INFORMATION; title = "Message"; break;
             case WARNING: flag = SDL_MESSAGEBOX_WARNING; title = "Warning"; break;
             case ERROR:   flag = SDL_MESSAGEBOX_ERROR; title = "Error"; break;
