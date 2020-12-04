@@ -46,8 +46,6 @@ namespace gl3
     void lookAt(float pos_x, float pos_y, float pos_z, float target_x, float target_y, float target_z, float up_x, float up_y, float up_z);
 
     void LoadIdentity();
-    void PushMatrix();
-    void PopMatrix();
 
     void Translate3D(double x, double y, double z);
     void color4f(float r, float g, float b, float a, int verticesNumber);
