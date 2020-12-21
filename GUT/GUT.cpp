@@ -18,7 +18,7 @@ namespace gut
 {
     void debugPrint(GUTtext text)
     {
-        std::cout << bg_blue << text << bg_def << std::endl;
+        std::cout << bg_blue << bold << text << bg_def << bold_off << std::endl;
     }
 
     std::ostream &operator<<(std::ostream &os, const Code code)

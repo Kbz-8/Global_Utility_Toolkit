@@ -19,8 +19,8 @@
 
 #include "Log/log.hpp"
 
-#include "GL_modern/utils.hpp"
 #include "GL_old/utils.hpp"
+#include "GL_modern/utils.hpp"
 
 #include "SDL2/input/input.hpp"
 #include "SDL2/messagebox/messagebox.hpp"

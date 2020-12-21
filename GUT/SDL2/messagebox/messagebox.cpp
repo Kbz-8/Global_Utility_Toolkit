@@ -22,8 +22,6 @@ namespace sdl
 
     void MessageBox::reportMessage(enum LogType type, std::string message, std::string logReport)
     {
-        Log::report(type, logReport, "Log_Report");
-
         SDL_MessageBoxButtonData buttons[] = {
             {NULL, 0, "Plus de détails"},
             {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 1, "ok"}
@@ -70,7 +68,9 @@ namespace sdl
 
         SDL_ShowMessageBox(&messageboxdata, &buttonid);
 
-        if(buttonid == 0)
+        if(buttonid == 1)
+            Log::report(type, logReport, "Log_Report");
+        else
         {
             message.append(":\n");
             message.append(logReport);
@@ -90,6 +90,8 @@ namespace sdl
             };
 
             SDL_ShowMessageBox(&messageboxdata, &buttonid);
+            if(buttonid == 1)
+                Log::report(type, logReport, "Log_Report");
         }
     }
 

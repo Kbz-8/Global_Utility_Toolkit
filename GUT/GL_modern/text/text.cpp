@@ -167,7 +167,7 @@ namespace gl3
 
     void Text::render(int x, int y, enum Alignement align)
     {
-        for(int i = 0; i < _lines.size(); i++) // On parcoure toutes les textures du tableau pour les afficher
+        for(int i = 0; i < _lines.size(); i++) // On parcour toutes les textures du tableau pour les afficher
         {
             switch(align) // On regarde quel alignement est demandé
             {
