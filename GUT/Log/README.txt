@@ -1,1 +1,0 @@
-To use this message management system, it is imperative that in the given folder, there is a "Errors" folder, a "Messages" folder and a "Warnings" folder. If you want to change those, you need to change the code of the Log class.

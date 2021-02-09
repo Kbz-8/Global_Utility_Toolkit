@@ -41,7 +41,6 @@
 
 namespace gut
 {
-    void debugPrint(GUTtext text = "debug");
 
 /*============ Couleurs des std::cout ============*/
     enum Code
@@ -74,6 +73,12 @@ namespace gut
     };
 
     std::ostream &operator<<(std::ostream &os, const Code code);
+    
+    template <typename T = GUTtext>
+    void debugPrint(T text = "debug")
+    {
+        std::cout << bg_blue << bold << text << bg_def << bold_off << std::endl;
+    }
 }
 
 #endif // __cplusplus

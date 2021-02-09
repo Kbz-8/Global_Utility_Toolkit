@@ -22,7 +22,7 @@ namespace sdl
 {
     Input::Input()
     {
-        std::cout << "Commandes initialisées" << std::endl;
+        std::cout << "Commandes initialisees" << std::endl;
 
         _x = 0;
         _y = 0;
@@ -90,7 +90,6 @@ namespace sdl
                         _isTyping = true;
                     }
                 break;
-
 
                 default: break;
             }
@@ -160,10 +159,15 @@ namespace sdl
         return fini;
     }
 
+    void Input::end()
+    {
+        fini = true;
+    }
+
 
     Input::~Input()
     {
-        std::cout << "Commandes liberées" << std::endl;
+        std::cout << "Commandes liberees" << std::endl;
     }
 }
 }

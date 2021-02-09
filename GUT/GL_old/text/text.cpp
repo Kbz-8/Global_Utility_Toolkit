@@ -176,14 +176,6 @@ namespace gl2
 
             glBindTexture(GL_TEXTURE_2D, _lines[i]); // On vérouille la texture du texte
 
-        /* ============ Rendu du texte en Direct mode ============
-         * Le direct est un autre mode de rendu avec OpenGL.
-         * Il a la particularité d'être extrêmement simple
-         * d'utilisation, mais aussi d'être assez lent car
-         * les informations passent par la RAM avant d'être
-         * envoyées à la carte graphique
-         */
-
             glColor3f(1, 1, 1);
 
             glBegin(GL_QUADS); // On dit à OpenGL que rendu est carré

@@ -7,7 +7,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
-// UPDATED: 21/11/2020
+// UPDATED: 08/02/2021
 /*=============================================================*/
 
 #ifndef __SHADER_HPP__
@@ -43,9 +43,9 @@ namespace gl3
             void setFloat(const std::string &name, float v);
             void setInt(const std::string &name, int v);
             void setBool(const std::string &name, bool v);
-            void setVec3(const std::string &name, math::Vec3 v);
-            void setVec2(const std::string &name, math::Vec2 v);
-            void setVec4(const std::string &name, math::Vec4 v);
+            void setVec3(const std::string &name, const math::Vec3<double> & v);
+            void setVec2(const std::string &name, const math::Vec2<double> & v);
+            void setVec4(const std::string &name, const math::Vec4<double> & v);
             void setVec3(const std::string &name, int x, int y, int z);
             void setVec2(const std::string &name, int x, int y);
             void setVec4(const std::string &name, int x, int y, int z, int t);

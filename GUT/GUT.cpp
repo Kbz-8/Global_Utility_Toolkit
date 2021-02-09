@@ -16,11 +16,6 @@
 
 namespace gut
 {
-    void debugPrint(GUTtext text)
-    {
-        std::cout << bg_blue << text << bg_def << std::endl;
-    }
-
     std::ostream &operator<<(std::ostream &os, const Code code)
     {
         return os << "\033[1;" << std::to_string(code) << "m";

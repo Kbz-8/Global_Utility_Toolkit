@@ -9,7 +9,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 13/11/2020
-// UPDATED: 04/12/2020
+// UPDATED: 23/01/2021
 /*=============================================================*/
 
 #ifndef UTILS_HPP
@@ -38,6 +38,7 @@ namespace gut
 namespace gl3
 {
     void perspective(float FOV, float aspect, float near, float far);
+    void ortho(float width, float height);
 
     void MatrixMode(int type);
     glm::mat4 getMatrix(int type);
@@ -49,6 +50,9 @@ namespace gl3
 
     void Translate3D(double x, double y, double z);
     void color4f(float r, float g, float b, float a, int verticesNumber);
+
+    float getGLversion();
+    float getGLSLversion();
 };
 }
 

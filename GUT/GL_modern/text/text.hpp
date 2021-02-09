@@ -7,7 +7,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
-// UPDATED: 07/11/2020
+// UPDATED: 23/01/2021
 /*=============================================================*/
 
 #ifndef TEXT_HPP_INCLUDED

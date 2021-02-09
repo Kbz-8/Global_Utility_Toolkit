@@ -7,7 +7,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
-// UPDATED: 07/11/2020
+// UPDATED: 23/01/2021
 /*=============================================================*/
 
 #ifdef __cplusplus
@@ -71,49 +71,27 @@ namespace gl3
 
     void Button::renderButton()
     {
-        unsigned char *couleurs;
-
-        float vertices[] = {
-            _pos_x, _pos_y + _pos_h,             // v4
-            _pos_x, _pos_y,                      // v1
-            _pos_x + _pos_w, _pos_y,             // v2
-
-            _pos_x, _pos_y + _pos_h,             // v4
-            _pos_x + _pos_w, _pos_y,             // v2
-            _pos_x + _pos_w, _pos_y + _pos_h     // v3
+        float vertices[8] = {
+                _pos_x, _pos_y,
+                _pos_x + _pos_w,  _pos_y,
+                _pos_x + _pos_w,  _pos_y + _pos_h,
+                _pos_x,  _pos_y + _pos_h
         };
 
         if(_activate)
-        {
-            couleurs = new unsigned char[16]{
-                 90, 90, 90, 255,   90, 90, 90, 255,   90, 90, 90, 255,   90, 90, 90, 255
-            };
-        }
+            color4f(0.4, 0.4, 0.4, 1.0, sizeof(vertices));
         else
-        {
-            couleurs = new unsigned char[16]{
-                 75, 75, 75, 255,   75, 75, 75, 255,   75, 75, 75, 255,   75, 75, 75, 255
-            };
-        }
+            color4f(0.3, 0.3, 0.3, 1.0, sizeof(vertices));
         if(_button_down)
-        {
-            couleurs = new unsigned char[16]{
-                 35, 35, 35, 255,   35, 35, 35, 255,   35, 35, 35, 255,   35, 35, 35, 255
-            };
-        }
+            color4f(0.1, 0.1, 0.1, 1.0, sizeof(vertices));
 
         glEnableVertexAttribArray(0);
-        glEnableVertexAttribArray(1);
-
         glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void*)vertices);
-        glVertexAttribPointer(1, 4, GL_UNSIGNED_BYTE, GL_FALSE, 4, (void*)couleurs);
 
-        glDrawArrays(GL_TRIANGLES, 6, sizeof(vertices));
+        glDrawArrays(GL_QUADS, 0, sizeof(vertices));
 
         glDisableVertexAttribArray(0);
         glDisableVertexAttribArray(1);
-
-        delete[] couleurs;
     }
 
     void Button::rescale(int pos_x, int pos_y, int width, int height)

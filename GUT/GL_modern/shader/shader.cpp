@@ -7,7 +7,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
-// UPDATED: 21/11/2020
+// UPDATED: 08/02/2021
 /*=============================================================*/
 
 #ifdef __cplusplus
@@ -31,6 +31,11 @@ namespace gl3
          *   et de les transmettre à l'autre type de shaders.
          * - Les fragment shaders qui sont les shaders qui modifient l'image.
          */
+
+        std::string getter = std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+        float version = std::stof(getter);
+        if(version < 2.0)
+            sdl::MessageBox::reportMessage(FATAL_ERROR, "Votre version d'OpenGL ne supporte pas les shaders", std::string("Vous avez OpenGL version " + std::to_string(version)));
 
         program = glCreateProgram(); // On créer le programme d'un shader
 
@@ -69,12 +74,12 @@ namespace gl3
         glUniform1f(glGetUniformLocation(program, name.c_str()), v);
     }
 
-    void Shader::setVec3(const std::string &name, math::Vec3 v)
+    void Shader::setVec3(const std::string &name, const math::Vec3<double> & v)
     {
         glUniform3f(glGetUniformLocation(program, name.c_str()), v.X, v.Y, v.Z);
     }
 
-    void Shader::setVec2(const std::string &name, math::Vec2 v)
+    void Shader::setVec2(const std::string &name, const math::Vec2<double> & v)
     {
         glUniform2f(glGetUniformLocation(program, name.c_str()), v.X, v.Y);
     }
@@ -99,7 +104,7 @@ namespace gl3
         glUniform1f(glGetUniformLocation(program, name.c_str()), v);
     }
 
-    void Shader::setVec4(const std::string &name, math::Vec4 v)
+    void Shader::setVec4(const std::string &name, const math::Vec4<double> & v)
     {
         glUniform4f(glGetUniformLocation(program, name.c_str()), v.X, v.Y, v.Z, v.W);
     }
@@ -166,7 +171,7 @@ namespace gl3
 
         if(!shader) // Si le shader ne s'est pas créé, on envoie un message d'erreur
         {
-            sdl::MessageBox::reportMessage(ERROR, "Impossible de créer un shader", SDL_GetError());
+            sdl::MessageBox::reportMessage(ERROR, "Impossible de creer un shader", SDL_GetError());
             return;
         }
 
@@ -210,9 +215,9 @@ namespace gl3
         }
 
         if(type == 35633 && shader)
-            std::cout << "vertex shader créé avec succès" << std::endl;
+            std::cout << "vertex shader cree avec succès" << std::endl;
         if(type == 35632 && shader)
-            std::cout << "fragment shader créé avec succès" << std::endl << std::endl;
+            std::cout << "fragment shader cree avec succès" << std::endl << std::endl;
 
         glAttachShader(program, shader); // On attache le shader à son programme
     }
@@ -226,7 +231,7 @@ namespace gl3
 
         unbindShader(); // On dévérouille tous les shaders
 
-        std::cout << "Shader libéré" << std::endl;
+        std::cout << "Shader libére" << std::endl;
     }
 }
 }

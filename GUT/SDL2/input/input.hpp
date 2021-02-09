@@ -53,6 +53,7 @@ namespace sdl
             bool _isTyping = false;
 
             bool fin() const; // Fonction pour savoir si la croix de fermeture de la fenêtre est cliquée
+            void end();
 
 
         private:

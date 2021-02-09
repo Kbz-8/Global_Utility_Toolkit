@@ -9,7 +9,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 13/11/2020
-// UPDATED: 04/12/2020
+// UPDATED: 23/01/2021
 /*=============================================================*/
 
 #include "utils.hpp"
@@ -31,16 +31,14 @@ namespace gl3
         GUTprojection = glm::perspective(glm::radians(FOV), aspect, near, far);
     }
 
+    void ortho(float width, float height)
+    {
+        GUTprojection = glm::ortho(0.0f, width, height, 0.0f);
+    }
+
     void MatrixMode(int type)
     {
-        switch(type)
-        {
-            case GUT_PROJECTION_MATRIX: ACTIVE_MATRIX = GUT_PROJECTION_MATRIX;  break;
-            case GUT_MODEL_MATRIX:      ACTIVE_MATRIX = GUT_MODEL_MATRIX;       break;
-            case GUT_VIEW_MATRIX:       ACTIVE_MATRIX = GUT_VIEW_MATRIX;        break;
-
-            default: break;
-        }
+        ACTIVE_MATRIX = type;
     }
 
     glm::mat4 getMatrix(int type)
@@ -91,16 +89,27 @@ namespace gl3
 
     void color4f(float r, float g, float b, float a, int verticesNumber)
     {
-        std::vector<float> pointer;
-        for(int i = 0; i < verticesNumber; i++)
+        float pointer[verticesNumber * 6 * 4];
+        for(int i = 0; i < verticesNumber * 6 * 4; i++)
         {
-            pointer.push_back(r);
-            pointer.push_back(g);
-            pointer.push_back(b);
-            pointer.push_back(a);
+            pointer[4 * i] = r;
+            pointer[4 * i + 1] = g;
+            pointer[4 * i + 2] = b;
+            pointer[4 * i + 3] = a;
         }
         glEnableVertexAttribArray(1);
-        glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, &pointer[0]);
+        glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, &pointer);
+    }
+
+    float getGLversion()
+    {
+        std::string getter = std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+        return std::stof(getter);
+    }
+    float getGLSLversion()
+    {
+        std::string getter = std::string(reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION)));
+        return std::stof(getter);
     }
 }
 }

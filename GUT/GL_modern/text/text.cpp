@@ -7,7 +7,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
-// UPDATED: 07/11/2020
+// UPDATED: 23/01/2021
 /*=============================================================*/
 
 #ifdef __cplusplus
@@ -26,7 +26,7 @@ namespace gl3
         _font = font;
 
         if(!_font) // Si il y a une erreur lors de la récupération de la police d'écriture, on envoie un message d'erreur
-            sdl::MessageBox::reportMessage(ERROR, "Problème lors de l'initialisation d'une police d'écriture", SDL_GetError());
+            sdl::MessageBox::reportMessage(ERROR, "Problème lors de la passation d'une police d'écriture", SDL_GetError());
 
         _noir = {0, 0, 0}; // Couleur noire
         _blanc = {255, 255, 255}; // Couleur blanche
@@ -54,7 +54,7 @@ namespace gl3
         _font = TTF_OpenFont(chemin, Size); // Récupération de la police d'écriture
 
         if(!_font) // Si il y a une erreur lors de la récupération de la police d'écriture, on envoie un message d'erreur
-            sdl::MessageBox::reportMessage(ERROR, "Problème lors de la passation d'une police d'écriture", SDL_GetError());
+            sdl::MessageBox::reportMessage(ERROR, "Problème lors de l'initialisation d'une police d'écriture", SDL_GetError());
 
         _noir = {0, 0, 0}; // Couleur noire
         _blanc = {255, 255, 255}; // Couleur blanche
@@ -167,7 +167,7 @@ namespace gl3
 
     void Text::render(int x, int y, enum Alignement align)
     {
-        for(int i = 0; i < _lines.size(); i++) // On parcoure toutes les textures du tableau pour les afficher
+        for(int i = 0; i < _lines.size(); i++) // On parcour toutes les textures du tableau pour les afficher
         {
             switch(align) // On regarde quel alignement est demandé
             {
@@ -194,7 +194,7 @@ namespace gl3
             //  |        |
             //  |        |
             //  v4-------v3
-
+/*
             float vertices[] = {
                 x, y + _surf_hei[i],    // v4
                 x, y,                   // v1
@@ -205,13 +205,25 @@ namespace gl3
                 x + _surf_wid[i], y + _surf_hei[i]      // v3
             };
 
+            glVertex2f(x, y);
+                glTexCoord2f(1, 0); glVertex2f(x + _surf_wid[i], y);
+                glTexCoord2f(1, 1); glVertex2f(x + _surf_wid[i], y + _surf_hei[i]);
+                glTexCoord2f(0, 1); glVertex2f(x, y + _surf_hei[i]);
+*/
+            float vertices[8] = {
+                x, y,
+                x + _surf_wid[i], y,
+                x + _surf_wid[i], y + _surf_hei[i],
+                x, y + _surf_hei[i]
+            };
+
             glEnableVertexAttribArray(0);
             glEnableVertexAttribArray(2);
 
             glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void*)vertices);
             glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)_coords_tex);
 
-            glDrawArrays(GL_TRIANGLES, 6, sizeof(vertices));
+            glDrawArrays(GL_QUADS, 0, sizeof(vertices));
 
             glDisableVertexAttribArray(0);
             glDisableVertexAttribArray(2);

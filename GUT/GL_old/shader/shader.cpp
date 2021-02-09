@@ -7,7 +7,7 @@
 //
 // AUTHOR: Malo DAVID
 // CREATED: 04/11/2020
-// UPDATED: 21/11/2020
+// UPDATED: 08/02/2021
 /*=============================================================*/
 
 #ifdef __cplusplus
@@ -31,6 +31,11 @@ namespace gl2
          *   et de les transmettre à l'autre type de shaders.
          * - Les fragment shaders qui sont les shaders qui modifient l'image.
          */
+
+        std::string getter = std::string(reinterpret_cast<const char*>(glGetString(GL_VERSION)));
+        float version = std::stof(getter);
+        if(version < 2.0)
+            sdl::MessageBox::reportMessage(FATAL_ERROR, "Votre version d'OpenGL ne supporte pas les shaders", std::string("Vous avez OpenGL version " + std::to_string(version)));
 
         program = glCreateProgram(); // On créer le programme d'un shader
 
@@ -70,22 +75,22 @@ namespace gl2
         glUniform1f(glGetUniformLocation(program, name.c_str()), v);
     }
 
-    void Shader::setVec3(const std::string &name, math::Vec3 v)
+    void Shader::setVec3(const std::string &name, const math::Vec3<double> & v)
     {
         glUniform3f(glGetUniformLocation(program, name.c_str()), v.X, v.Y, v.Z);
     }
 
-    void Shader::setVec2(const std::string &name, math::Vec2 v)
+    void Shader::setVec2(const std::string &name, const math::Vec2<double> & v)
     {
         glUniform2f(glGetUniformLocation(program, name.c_str()), v.X, v.Y);
     }
 
-    void Shader::setVec3(const std::string &name, int x, int y, int z)
+    void Shader::setVec3(const std::string &name, double x, double y, double z)
     {
         glUniform3f(glGetUniformLocation(program, name.c_str()), x, y, z);
     }
 
-    void Shader::setVec2(const std::string &name, int x, int y)
+    void Shader::setVec2(const std::string &name, double x, double y)
     {
         glUniform2f(glGetUniformLocation(program, name.c_str()), x, y);
     }
@@ -100,12 +105,12 @@ namespace gl2
         glUniform1f(glGetUniformLocation(program, name.c_str()), v);
     }
 
-    void Shader::setVec4(const std::string &name, math::Vec4 v)
+    void Shader::setVec4(const std::string &name, const math::Vec4<double> & v)
     {
         glUniform4f(glGetUniformLocation(program, name.c_str()), v.X, v.Y, v.Z, v.W);
     }
 
-    void Shader::setVec4(const std::string &name, int x, int y, int z, int t)
+    void Shader::setVec4(const std::string &name, double x, double y, double z, double t)
     {
         glUniform4f(glGetUniformLocation(program, name.c_str()), x, y, z, t);
     }
